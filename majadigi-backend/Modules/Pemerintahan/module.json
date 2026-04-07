@@ -1,0 +1,11 @@
+{
+    "name": "Pemerintahan",
+    "alias": "pemerintahan",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Pemerintahan\\Providers\\PemerintahanServiceProvider"
+    ],
+    "files": []
+}

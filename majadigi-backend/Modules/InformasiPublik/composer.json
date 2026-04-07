@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/informasipublik",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\InformasiPublik\\": "app/",
+            "Modules\\InformasiPublik\\Database\\Factories\\": "database/factories/",
+            "Modules\\InformasiPublik\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\InformasiPublik\\Tests\\": "tests/"
+        }
+    }
+}

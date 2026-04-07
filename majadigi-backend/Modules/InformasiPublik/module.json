@@ -1,0 +1,11 @@
+{
+    "name": "InformasiPublik",
+    "alias": "informasipublik",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\InformasiPublik\\Providers\\InformasiPublikServiceProvider"
+    ],
+    "files": []
+}

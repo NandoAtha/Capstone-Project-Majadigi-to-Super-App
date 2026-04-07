@@ -1,0 +1,11 @@
+{
+    "name": "Ketenagakerjaan",
+    "alias": "ketenagakerjaan",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Ketenagakerjaan\\Providers\\KetenagakerjaanServiceProvider"
+    ],
+    "files": []
+}

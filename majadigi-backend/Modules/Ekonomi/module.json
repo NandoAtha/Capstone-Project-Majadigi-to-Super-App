@@ -1,0 +1,11 @@
+{
+    "name": "Ekonomi",
+    "alias": "ekonomi",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Ekonomi\\Providers\\EkonomiServiceProvider"
+    ],
+    "files": []
+}

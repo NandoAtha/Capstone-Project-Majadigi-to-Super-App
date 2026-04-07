@@ -1,0 +1,12 @@
+{
+    "Auth": true,
+    "Layanan": true,
+    "Core": true,
+    "InformasiPublik": true,
+    "Pariwisata": true,
+    "Kesehatan": true,
+    "Ekonomi": true,
+    "Pemerintahan": true,
+    "Ketenagakerjaan": true,
+    "Darurat": true
+}

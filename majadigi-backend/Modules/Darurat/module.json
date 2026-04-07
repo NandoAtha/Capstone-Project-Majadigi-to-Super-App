@@ -1,0 +1,11 @@
+{
+    "name": "Darurat",
+    "alias": "darurat",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Darurat\\Providers\\DaruratServiceProvider"
+    ],
+    "files": []
+}
