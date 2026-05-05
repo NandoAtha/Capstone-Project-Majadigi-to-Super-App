@@ -15,7 +15,10 @@ class CoreServiceProvider extends ServiceProvider
     protected string $name = 'Core';
 
     protected string $nameLower = 'core';
-
+    
+    protected $providers = [
+    RouteServiceProvider::class, // ← harus ada
+];
     /**
      * Boot the application events.
      */

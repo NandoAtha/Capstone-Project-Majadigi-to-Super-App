@@ -3,6 +3,31 @@
 use Illuminate\Support\Facades\Route;
 use Modules\Ketenagakerjaan\Http\Controllers\KetenagakerjaanController;
 
+use Modules\Ketenagakerjaan\Http\Controllers\JobTrainingController;
+use Modules\Ketenagakerjaan\Http\Controllers\JobApplicationController;
+use Modules\Ketenagakerjaan\Http\Controllers\TrainingController;
+use Modules\Ketenagakerjaan\Http\Controllers\TrainingParticipantController;
+
 Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
     Route::apiResource('ketenagakerjaans', KetenagakerjaanController::class)->names('ketenagakerjaan');
+});
+
+
+Route::prefix('ketenagakerjaan')->middleware(['auth:sanctum'])->group(function () {
+
+    // JOB
+    Route::get('/jobs', [JobTrainingController::class, 'index']);
+    Route::get('/jobs/{id}', [JobTrainingController::class, 'show']);
+
+    // APPLY
+    Route::post('/apply', [JobApplicationController::class, 'apply']);
+    Route::get('/my-applications', [JobApplicationController::class, 'myApplications']);
+
+    // TRAINING
+    Route::get('/trainings', [TrainingController::class, 'index']);
+    Route::get('/trainings/{id}', [TrainingController::class, 'show']);
+
+    // JOIN TRAINING
+    Route::post('/join-training', [TrainingParticipantController::class, 'join']);
+    Route::get('/my-trainings', [TrainingParticipantController::class, 'myTrainings']);
 });
