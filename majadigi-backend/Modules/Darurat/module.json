@@ -7,5 +7,9 @@
     "providers": [
         "Modules\\Darurat\\Providers\\DaruratServiceProvider"
     ],
-    "files": []
+    "files": [],
+    "routes": {
+        "api": "Routes/api.php",
+        "web": "Routes/web.php"
+    }
 }

@@ -1,6 +1,10 @@
 {
     "name": "Core",
     "alias": "core",
+    "routes": {
+        "api": "Routes/api.php",
+        "web": "Routes/web.php"
+    },
     "description": "",
     "keywords": [],
     "priority": 0,

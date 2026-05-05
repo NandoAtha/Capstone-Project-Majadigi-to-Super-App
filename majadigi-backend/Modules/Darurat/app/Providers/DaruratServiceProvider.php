@@ -16,6 +16,10 @@ class DaruratServiceProvider extends ServiceProvider
 
     protected string $nameLower = 'darurat';
 
+    protected $providers = [
+    RouteServiceProvider::class, 
+];
+
     /**
      * Boot the application events.
      */
