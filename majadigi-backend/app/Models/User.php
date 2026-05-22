@@ -10,16 +10,10 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles; // <--- TAMBAHKAN BARIS INI
 
 // ✅ TAMBAHKAN INI
-use Laravel\Sanctum\HasApiTokens;
-use Spatie\Permission\Traits\HasRoles;
+use Spatie\Permission\Traits\HzasRoles;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasApiTokens, Notifiable;
-    use HasFactory, Notifiable;
-    use HasRoles;
-
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
