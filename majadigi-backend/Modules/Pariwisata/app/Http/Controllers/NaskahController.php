@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Pariwisata\Http\Controllers;
+namespace Modules\Pariwisata\app\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
-use Modules\Pariwisata\Models\NaskahKuno;
+use Modules\Pariwisata\app\Models\NaskahKuno; // Mengarah ke model yang sudah diperbaiki
 
 class NaskahController extends Controller
 {
