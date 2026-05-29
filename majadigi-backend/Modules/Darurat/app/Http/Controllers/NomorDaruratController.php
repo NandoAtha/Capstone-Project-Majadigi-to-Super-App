@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Darurat\Http\Controllers;
+namespace Modules\Darurat\app\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
