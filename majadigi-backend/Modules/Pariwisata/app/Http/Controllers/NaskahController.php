@@ -71,4 +71,53 @@ class NaskahController extends Controller
             'data' => $naskah
         ], 201);
     }
+    // 3. Fungsi Detail Naskah Berdasarkan ID (GET)
+    public function show($id)
+    {
+        $naskah = NaskahKuno::find($id);
+
+        if (!$naskah) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Naskah kuno tidak ditemukan'
+            ], 404);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Detail naskah kuno berhasil diambil',
+            'data' => $naskah
+        ], 200);
+    }
+
+    // 4. Fungsi Kirim Komentar Naskah (POST)
+    // Catatan: Untuk sementara kita simpan logikanya di sini, nanti relasi tabel komentar bisa dikembangkan saat tabel User Super App sudah matang.
+    public function storeKomentar(Request $request, $id)
+    {
+        $request->validate([
+            'komentar' => 'required|string',
+        ]);
+
+        $naskah = NaskahKuno::find($id);
+
+        if (!$naskah) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Naskah kuno tidak ditemukan'
+            ], 404);
+        }
+
+        // Response simulasi sukses menyimpan komentar sesuai kebutuhan tiket/ID komentar
+        return response()->json([
+            'success' => true,
+            'message' => 'Komentar berhasil dikirim!',
+            'data' => [
+                'tiket_id' => uniqid('TCK-'),
+                'naskah_id' => $naskah->id,
+                'user' => $request->user()->name ?? 'Pengguna Majadigi',
+                'komentar' => $request->komentar,
+                'created_at' => now()
+            ]
+        ], 201);
+    }
 }

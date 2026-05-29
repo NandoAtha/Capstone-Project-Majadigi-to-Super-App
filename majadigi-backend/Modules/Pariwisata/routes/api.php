@@ -11,4 +11,9 @@ Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
     // 2. Endpoint Pendaftaran Naskah Baru (POST)
     Route::post('/naskah/register', [NaskahController::class, 'store']);
     
+    // 3. Endpoint Detail Naskah Berdasarkan ID
+    Route::get('/naskah/{id}', [NaskahController::class, 'show']);
+    
+    // 4. Endpoint Kirim Komentar Naskah
+    Route::post('/naskah/{id}/komentar', [NaskahController::class, 'storeKomentar']);
 });
