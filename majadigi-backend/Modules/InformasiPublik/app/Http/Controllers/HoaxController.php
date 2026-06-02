@@ -3,7 +3,6 @@ namespace Modules\InformasiPublik\app\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Modules\InformasiPublik\app\Models\HoaxReport;
 use Modules\InformasiPublik\Models\HoaxReport as ModelsHoaxReport;
 
 class HoaxController extends Controller

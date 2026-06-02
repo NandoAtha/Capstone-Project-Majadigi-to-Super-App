@@ -9,20 +9,35 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('bahan_pokok', function (Blueprint $table) {
-            $table->id();
-            
-            $table->timestamps();
-        });
-    }
+    public function up(): void {
+    // 1. Data Master Bahan Pokok
+    Schema::create('bahan_pokoks', function (Blueprint $table) {
+        $table->id();
+        $table->string('nama_bahan');
+        $table->string('satuan'); // misal: kg, liter, bungkus
+        $table->string('foto')->nullable();
+        $table->decimal('harga_tertinggi', 12, 2);
+        $table->decimal('harga_terendah', 12, 2);
+        $table->timestamps();
+    });
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('bahan_pokok');
-    }
+    // 2. Data Master Pasar
+    Schema::create('pasars', function (Blueprint $table) {
+        $table->id();
+        $table->string('nama_pasar');
+        $table->string('wilayah'); // misal: Malang Kota, Malang Kabupaten
+        $table->timestamps();
+    });
+
+    // 3. Data Harga (Transaksi & Tren)
+    Schema::create('harga_harians', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('bahan_pokok_id')->constrained();
+        $table->foreignId('pasar_id')->constrained();
+        $table->decimal('harga_sekarang', 12, 2);
+        $table->date('tanggal');
+        $table->enum('tren', ['naik', 'turun', 'stabil']);
+        $table->timestamps();
+    });
+}
 };
