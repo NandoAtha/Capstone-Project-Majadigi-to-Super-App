@@ -23,7 +23,7 @@ return new class extends Migration
             $table->decimal('rating', 2, 1)->default(0.0); 
             
             // 2. Data Filter Daerah
-            $table->string('kabupaten_kota')->default('Kabupaten Mojokerto');
+            $table->string('kabupaten_kota');
             $table->string('kecamatan')->nullable();
             
             // 3. Data Spesifikasi Cuaca & Geografis

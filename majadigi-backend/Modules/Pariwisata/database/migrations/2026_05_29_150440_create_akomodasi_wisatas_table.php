@@ -17,7 +17,7 @@ return new class extends Migration
             // 1. Data Master Properti Akomodasi
             $table->string('nama_akomodasi'); // Contoh: Grand Whiz Hotel Trawulan
             $table->string('foto_utama')->nullable();
-            $table->string('kabupaten_kota')->default('Kabupaten Mojokerto');
+            $table->string('kabupaten_kota');
             $table->decimal('harga_sewa_terendah', 12, 2)->default(0);
             $table->text('deskripsi_fasilitas_utama');
             
