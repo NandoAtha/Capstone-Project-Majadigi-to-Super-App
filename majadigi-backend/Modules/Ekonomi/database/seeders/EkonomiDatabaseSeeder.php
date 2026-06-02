@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Ekonomi\Database\Seeders;
+namespace Modules\Ekonomi\database\seeders;
 
 use Illuminate\Database\Seeder;
 
@@ -11,6 +11,7 @@ class EkonomiDatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // $this->call([]);
+        // Di sini panggilannya yang bener, Rid!
+        $this->call(BapendaSimulasiSeeder::class);
     }
 }
