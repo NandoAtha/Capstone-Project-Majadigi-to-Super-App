@@ -14,6 +14,7 @@ Route::prefix('kesehatan')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/tbc/screening', [TbcScreeningController::class, 'store']);
     });
+    // Route::post('/tbc/screening', [TbcScreeningController::class, 'store']);
     Route::get('/tbc/questions', [TbcScreeningController::class, 'questions']);
     Route::get('/tbc/symptoms', [TbcScreeningController::class, 'symptoms']);
 });

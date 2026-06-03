@@ -7,6 +7,7 @@ use Modules\Ketenagakerjaan\Http\Controllers\JobTrainingController;
 use Modules\Ketenagakerjaan\Http\Controllers\JobApplicationController;
 use Modules\Ketenagakerjaan\Http\Controllers\TrainingController;
 use Modules\Ketenagakerjaan\Http\Controllers\TrainingParticipantController;
+use Modules\Ketenagakerjaan\Http\Controllers\TrainingCenterController;
 
 Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
     Route::apiResource('ketenagakerjaans', KetenagakerjaanController::class)->names('ketenagakerjaan');
@@ -14,6 +15,9 @@ Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
 
 
 Route::prefix('ketenagakerjaan')->middleware(['auth:sanctum'])->group(function () {
+
+    Route::get('/training-centers', [TrainingCenterController::class, 'index']);
+    Route::get('/training-centers/{id}', [TrainingCenterController::class, 'show']);
 
     // JOB
     Route::get('/jobs', [JobTrainingController::class, 'index']);
@@ -30,4 +34,6 @@ Route::prefix('ketenagakerjaan')->middleware(['auth:sanctum'])->group(function (
     // JOIN TRAINING
     Route::post('/join-training', [TrainingParticipantController::class, 'join']);
     Route::get('/my-trainings', [TrainingParticipantController::class, 'myTrainings']);
+    Route::get('/my-trainings/{id}', [TrainingParticipantController::class, 'show']);
+
 });
