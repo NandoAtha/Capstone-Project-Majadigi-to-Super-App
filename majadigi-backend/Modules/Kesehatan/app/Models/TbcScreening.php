@@ -13,11 +13,30 @@ class TbcScreening extends Model
 
     protected $fillable = [
         'user_id',
+        'is_self_screening',
         'pelapor_nama',
         'pelapor_kelompok',
         'pelapor_instansi',
         'pelapor_no_telp',
-        'status_risiko'
+        'pelapor_nik',
+        'bantu_lapor_nama',
+        'bantu_lapor_nik',
+        'nama_pasien',
+        'nik_pasien',
+        'status_risiko',
+
+        'no_telp',
+        'tahun_lahir',
+        'bulan_lahir',
+        'tanggal_lahir',
+        'umur',
+        'berat_badan',
+        'tinggi_badan',
+        'alamat',
+        'pekerjaan',
+        'kabupaten',
+        'kecamatan',
+        'kelurahan',
     ];
 
     // Relasi ke user

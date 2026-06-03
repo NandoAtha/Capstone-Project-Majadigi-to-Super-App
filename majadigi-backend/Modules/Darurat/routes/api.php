@@ -8,7 +8,7 @@ Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
     Route::apiResource('darurats', DaruratController::class)->names('darurat');
 });
 
-Route::prefix('darurat')->middleware(['auth:sanctum'])->group(function() {
+Route::prefix('darurat')->group(function() {
     
     Route::get('/nomor', [NomorDaruratController::class, 'index']);
     

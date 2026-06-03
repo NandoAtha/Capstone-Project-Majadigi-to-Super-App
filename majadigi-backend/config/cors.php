@@ -29,10 +29,6 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
-
-    'paths' => ['api/*'],
-    
-    'allowed_origins' => ['*'],
+    'supports_credentials' => true,
 
 ];
