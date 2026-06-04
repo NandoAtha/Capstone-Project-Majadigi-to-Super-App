@@ -14,10 +14,13 @@ return new class extends Migration
     Schema::create('bahan_pokoks', function (Blueprint $table) {
         $table->id();
         $table->string('nama_bahan');
-        $table->string('satuan'); // misal: kg, liter, bungkus
+        $table->string('satuan'); 
+        $table->string('kategori'); // Tambahan untuk Filter Layar 2
         $table->string('foto')->nullable();
         $table->decimal('harga_tertinggi', 12, 2);
+        $table->string('daerah_tertinggi')->nullable(); // Tambahan untuk Detail Layar 3
         $table->decimal('harga_terendah', 12, 2);
+        $table->string('daerah_terendah')->nullable(); // Tambahan untuk Detail Layar 3
         $table->timestamps();
     });
 

@@ -10,7 +10,7 @@ class BapendaSimulasiSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. DATA SIMULASI KENDARAAN
+        // 1. DATA SIMULASI KENDARAAN (Ditambahkan Opsen PKB)
         Kendaraan::updateOrCreate(
             ['nomor_polisi' => 'N 1234 FAR'],
             [
@@ -24,6 +24,7 @@ class BapendaSimulasiSeeder extends Seeder
                 'tanggal_jatuh_tempo_stnk' => '2029-03-15',
                 'pkb_dasar' => 245000,
                 'pkb_progresif' => 0,
+                'opsen_pkb' => 161700, // 👈 TAMBAHAN OPSEN PKB UNTUK FE (66% dari PKB Dasar)
                 'swdkllj' => 35000,
                 'parkir_berlangganan' => 25000,
                 'biaya_pengesahan_stnk' => 25000,
@@ -46,6 +47,7 @@ class BapendaSimulasiSeeder extends Seeder
                 'tanggal_jatuh_tempo_stnk' => '2026-01-10',
                 'pkb_dasar' => 3100000,
                 'pkb_progresif' => 620000,
+                'opsen_pkb' => 2046000, // 👈 TAMBAHAN OPSEN PKB MOBIL UNTUK FE
                 'swdkllj' => 143000,
                 'parkir_berlangganan' => 50000,
                 'biaya_pengesahan_stnk' => 50000,

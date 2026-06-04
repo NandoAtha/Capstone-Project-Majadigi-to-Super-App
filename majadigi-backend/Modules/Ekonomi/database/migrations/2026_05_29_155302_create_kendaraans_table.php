@@ -27,6 +27,7 @@ return new class extends Migration
             // 3. Data Rincian Biaya Pajak Tahunan
             $table->decimal('pkb_dasar', 12, 2);
             $table->decimal('pkb_progresif', 12, 2)->default(0);
+            $table->decimal('opsen_pkb', 12, 2)->default(0);
             $table->decimal('swdkllj', 12, 2)->default(35000); // Standar motor Jatim
             $table->decimal('parkir_berlangganan', 12, 2)->default(25000); // Khas Jatim
             $table->decimal('biaya_pengesahan_stnk', 12, 2)->default(25000);

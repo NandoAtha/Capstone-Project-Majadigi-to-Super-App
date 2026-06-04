@@ -16,5 +16,7 @@ Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
     Route::post('/hoax/lapor', [HoaxController::class, 'store']);
 
     Route::get('/harga-pokok', [HargaBahanController::class, 'getHarga']);
+
+    Route::get('/bahan-pokok/{id}', [HargaBahanController::class, 'show']);
     
 });

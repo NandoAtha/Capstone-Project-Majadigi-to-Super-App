@@ -24,6 +24,7 @@ class Kendaraan extends Model
         'tanggal_jatuh_tempo_stnk',
         'pkb_dasar',
         'pkb_progresif',
+        'opsen_pkb',
         'swdkllj',
         'parkir_berlangganan',
         'biaya_pengesahan_stnk',

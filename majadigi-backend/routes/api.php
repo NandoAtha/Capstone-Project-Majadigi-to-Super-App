@@ -12,7 +12,7 @@ Route::post('v1/login', function (Request $request) {
     $user = User::where('email', $request->email)->first();
 
     if (! $user || ! Hash::check($request->password, $user->password)) {
-        return response()->json(['message' => 'Email atau Password salah, Rid!'], 401);
+        return response()->json(['message' => 'Email atau Password salah'], 401);
     }
 
     // Buat token Sanctum
