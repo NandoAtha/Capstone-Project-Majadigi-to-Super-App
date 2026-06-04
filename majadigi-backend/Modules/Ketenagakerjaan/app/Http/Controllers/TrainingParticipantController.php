@@ -4,9 +4,9 @@ namespace Modules\Ketenagakerjaan\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Ketenagakerjaan\app\Models\TrainingParticipant;
-use Modules\Ketenagakerjaan\app\Models\JobSeeker;
-use Modules\Ketenagakerjaan\app\Enums\TrainingParticipantStatus;
+use Modules\Ketenagakerjaan\Models\TrainingParticipant;
+use Modules\Ketenagakerjaan\Models\JobSeeker;
+use Modules\Ketenagakerjaan\Enums\TrainingParticipantStatus;
 
 class TrainingParticipantController extends Controller
 {
