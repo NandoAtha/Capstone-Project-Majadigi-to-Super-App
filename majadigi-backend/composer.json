@@ -26,9 +26,18 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Modules\\": "Modules/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "Modules\\Core\\": "Modules/Core/app/",
+            "Modules\\Kesehatan\\": "Modules/Kesehatan/app/",
+            "Modules\\Ekonomi\\": "Modules/Ekonomi/app/",
+            "Modules\\Pendidikan\\": "Modules/Pendidikan/app/",
+            "Modules\\Pariwisata\\": "Modules/Pariwisata/app/",
+            "Modules\\Rsud\\": "Modules/Rsud/app/",
+            "Modules\\Ketenagakerjaan\\": "Modules/Ketenagakerjaan/app/",
+            "Modules\\InformasiPublik\\": "Modules/InformasiPublik/app/",
+            "Modules\\Pemerintahan\\": "Modules/Pemerintahan/app/",
+            "Modules\\Darurat\\": "Modules/Darurat/app/"
         }
     },
     "autoload-dev": {
