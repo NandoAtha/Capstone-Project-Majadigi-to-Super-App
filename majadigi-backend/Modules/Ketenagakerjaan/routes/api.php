@@ -9,9 +9,9 @@ use Modules\Ketenagakerjaan\Http\Controllers\TrainingController;
 use Modules\Ketenagakerjaan\Http\Controllers\TrainingParticipantController;
 use Modules\Ketenagakerjaan\Http\Controllers\TrainingCenterController;
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::apiResource('ketenagakerjaans', KetenagakerjaanController::class)->names('ketenagakerjaan');
-});
+// Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
+//     Route::apiResource('ketenagakerjaans', KetenagakerjaanController::class)->names('ketenagakerjaan');
+// });
 
 
 Route::prefix('ketenagakerjaan')->middleware(['auth:sanctum'])->group(function () {
