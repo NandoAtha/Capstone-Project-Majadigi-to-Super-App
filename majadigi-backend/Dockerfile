@@ -27,6 +27,9 @@ COPY . .
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
+# ✅ Beritahu Octane untuk menggunakan FrankenPHP bawaan Docker
+ENV OCTANE_FRANKENPHP_BINARY=frankenphp
+
 RUN composer install \
     --no-dev \
     --optimize-autoloader \
