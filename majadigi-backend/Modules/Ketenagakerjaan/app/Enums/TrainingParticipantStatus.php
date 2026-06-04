@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Ketenagakerjaan\app\Enums;
+namespace Modules\Ketenagakerjaan\Enums;
 
 class TrainingParticipantStatus
 {
