@@ -10,7 +10,8 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles; // <--- TAMBAHKAN BARIS INI
 
 // ✅ TAMBAHKAN INI
-use Spatie\Permission\Traits\HzasRoles;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
