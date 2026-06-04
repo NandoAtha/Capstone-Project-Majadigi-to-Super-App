@@ -14,7 +14,7 @@ Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
 });
 
 
-Route::prefix('ketenagakerjaan')->group(function () {
+Route::prefix('ketenagakerjaan')->middleware(['auth:sanctum'])->group(function () {
 
     Route::get('/training-centers', [TrainingCenterController::class, 'index']);
     Route::get('/training-centers/{id}', [TrainingCenterController::class, 'show']);
