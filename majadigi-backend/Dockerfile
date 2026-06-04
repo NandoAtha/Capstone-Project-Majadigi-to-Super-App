@@ -36,6 +36,9 @@ RUN chmod -R 775 storage bootstrap/cache
 
 EXPOSE 8080
 
+RUN echo "memory_limit=512M" > /usr/local/etc/php/conf.d/memory.ini
+RUN echo "max_execution_time=60" >> /usr/local/etc/php/conf.d/memory.ini
+
 # Tambahkan script entrypoint terpisah
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
