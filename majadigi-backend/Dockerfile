@@ -27,7 +27,6 @@ COPY . .
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-
 RUN composer install \
     --no-dev \
     --optimize-autoloader \
@@ -37,11 +36,8 @@ RUN chmod -R 775 storage bootstrap/cache
 
 EXPOSE 8080
 
+# Tambahkan script entrypoint terpisah
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-
-CMD php artisan config:cache && \
-    php artisan route:cache && \
-    php artisan view:cache && \
-    php artisan migrate --force && \
-    php artisan module:list && \
-    php artisan octane:frankenphp --host=0.0.0.0 --port=${PORT:-8080}
+CMD ["/usr/local/bin/docker-entrypoint.sh"]
