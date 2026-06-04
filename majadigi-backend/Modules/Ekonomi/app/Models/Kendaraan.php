@@ -22,6 +22,7 @@ class Kendaraan extends Model
         'tahun_pembuatan',
         'tanggal_jatuh_tempo_pajak',
         'tanggal_jatuh_tempo_stnk',
+        'opsen_pkb',
         'pkb_dasar',
         'pkb_progresif',
         'swdkllj',

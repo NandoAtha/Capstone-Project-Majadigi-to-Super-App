@@ -54,6 +54,7 @@ class BapendaController extends Controller
                     'jatuh_tempo_pajak' => $kendaraan->tanggal_jatuh_tempo_pajak->toDateString(),
                 ],
                 'rincian_tahunan' => [
+                    'opsen_pkb' => $kendaraan->opsen_pkb,
                     'pkb_dasar' => $kendaraan->pkb_dasar,
                     'pkb_progresif' => $kendaraan->pkb_progresif,
                     'swdkllj' => $kendaraan->swdkllj,
