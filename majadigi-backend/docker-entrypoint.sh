@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+echo "=== Clearing old cache ==="
+php artisan optimize:clear
+
 echo "=== Caching config ==="
 php artisan config:cache
 
@@ -30,9 +33,14 @@ php -r "
     }
 "
 
+echo "=== Debugging Worker ==="
+# Tambahkan '|| true' agar script tidak langsung terhenti (karena set -e) 
+# jika command ini menghasilkan error.
+php public/frankenphp-worker.php || true
+
 echo "=== Starting Octane ==="
-exec php artisan octane:frankenphp \
+# Gunakan perintah standar octane:start, bukan octane:frankenphp
+exec php artisan octane:start \
+    --server=frankenphp \
     --host=0.0.0.0 \
-    --port=${PORT:-8080} \
-    --workers=1 \
-    --max-requests=50
+    --port=${PORT:-8080}
