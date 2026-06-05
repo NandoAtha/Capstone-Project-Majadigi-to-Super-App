@@ -12,25 +12,36 @@ use App\Http\Controllers\Controller;
 class AuthController extends Controller
 {
     // REGISTER
-    public function register(Request $request)
+     function register(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6'
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'required|string|max:20',
+            'address' => 'required|string',
+            'nik' => 'required|string|unique:users,nik',
+            'birth_date' => 'required|date',
+            'password' => 'required|min:6|confirmed',
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'nik' => $request->nik,
+            'birth_date' => $request->birth_date,
+            'password' => Hash::make($request->password),
         ]);
+
+        $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
             'status' => true,
             'message' => 'Register berhasil',
-            'data' => $user
-        ]);
+            'token' => $token,
+            'user' => $user,
+        ], 201);
     }
 
     // LOGIN
