@@ -47,10 +47,10 @@ Route::post('/bookings', [
 ]);
 });
 
-use Modules\Pariwisata\app\Http\Controllers\NaskahController;
-use Modules\Pariwisata\app\Http\Controllers\DestinasiWisataController;  
-use Modules\Pariwisata\app\Http\Controllers\EventWisataController;
-use Modules\Pariwisata\app\Http\Controllers\AkomodasiWisataController;
+use Modules\Pariwisata\Http\Controllers\NaskahController;
+use Modules\Pariwisata\Http\Controllers\DestinasiWisataController;
+use Modules\Pariwisata\Http\Controllers\EventWisataController;
+use Modules\Pariwisata\Http\Controllers\AkomodasiWisataController;
 
 Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
     

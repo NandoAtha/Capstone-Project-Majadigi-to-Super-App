@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\InformasiPublik\app\Http\Controllers;
+namespace Modules\InformasiPublik\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Modules\InformasiPublik\Models\HargaHarian;

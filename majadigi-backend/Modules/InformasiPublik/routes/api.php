@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\InformasiPublik\Http\Controllers\InformasiPublikController;
-use Modules\InformasiPublik\app\Http\Controllers\HoaxController;
-use Modules\InformasiPublik\app\Http\Controllers\HargaBahanController;
+use Modules\InformasiPublik\Http\Controllers\HoaxController;
+use Modules\InformasiPublik\Http\Controllers\HargaBahanController;
 
 // Gunakan satu prefix 'v1' saja di paling luar
 //Route::middleware(['auth:sanctum'])->group(function () {
