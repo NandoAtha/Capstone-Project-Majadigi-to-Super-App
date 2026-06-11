@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Ekonomi\app\Http\Controllers;
+namespace Modules\Ekonomi\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Modules\Ekonomi\app\Models\Kendaraan;
-use Modules\Ekonomi\app\Models\Njkb;
+use Modules\Ekonomi\Models\Kendaraan;
+use Modules\Ekonomi\Models\Njkb;
 
 class BapendaController extends Controller
 {
