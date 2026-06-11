@@ -6,7 +6,7 @@ use Modules\InformasiPublik\app\Http\Controllers\HoaxController;
 use Modules\InformasiPublik\app\Http\Controllers\HargaBahanController;
 
 // Gunakan satu prefix 'v1' saja di paling luar
-Route::middleware(['auth:sanctum'])->group(function () {
+//Route::middleware(['auth:sanctum'])->group(function () {
     
     // Rute Resource yang sudah ada
     Route::apiResource('informasipubliks', InformasiPublikController::class)->names('informasipublik');
@@ -17,4 +17,4 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('/harga-bahan', [HargaBahanController::class, 'getHarga']);
     Route::get('/harga-bahan/{id}', [HargaBahanController::class, 'detail']);
-});
+//});
