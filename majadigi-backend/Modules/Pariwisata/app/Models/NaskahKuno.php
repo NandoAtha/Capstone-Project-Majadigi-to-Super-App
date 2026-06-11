@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Pariwisata\app\Models;
+namespace Modules\Pariwisata\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
