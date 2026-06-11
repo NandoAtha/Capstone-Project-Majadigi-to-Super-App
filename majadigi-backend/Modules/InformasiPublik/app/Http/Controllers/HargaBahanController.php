@@ -8,17 +8,28 @@ use Modules\InformasiPublik\Models\HargaHarian;
 class HargaBahanController extends Controller
 {
     public function getHarga()
-    {
-        $data = HargaHarian::with(['bahanPokok', 'pasar'])
-            ->where('tanggal', request('tanggal') ?? now()->format('Y-m-d'))
-            ->get();
+{
+    try {
+
+        $data = HargaHarian::with([
+            'bahanPokok',
+            'pasar'
+        ])->get();
 
         return response()->json([
             'success' => true,
-            'message' => 'Data Harga Bahan Pokok Berhasil Diambil',
             'data' => $data,
         ]);
+
+    } catch (\Throwable $e) {
+
+        return response()->json([
+            'error' => $e->getMessage(),
+            'line' => $e->getLine(),
+            'file' => $e->getFile(),
+        ], 500);
     }
+}
 
     public function detail($id)
     {
