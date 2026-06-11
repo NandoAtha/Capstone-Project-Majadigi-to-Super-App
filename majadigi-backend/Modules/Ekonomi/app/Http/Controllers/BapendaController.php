@@ -80,16 +80,19 @@ class BapendaController extends Controller
         $query = Njkb::query();
 
         // Penerapan filter dropdown dinamis dari mobile
-        if ($request->has('jenis_kendaraan')) {
+        if ($request->filled('jenis_kendaraan')) {
             $query->where('jenis_kendaraan', $request->jenis_kendaraan);
         }
-        if ($request->has('merk_kendaraan')) {
+
+        if ($request->filled('merk_kendaraan')) {
             $query->where('merk_kendaraan', $request->merk_kendaraan);
         }
-        if ($request->has('tahun_pembuatan')) {
+
+        if ($request->filled('tahun_pembuatan')) {
             $query->where('tahun_pembuatan', $request->tahun_pembuatan);
         }
-        if ($request->has('model_tipe_spesifik')) {
+
+        if ($request->filled('model_tipe_spesifik')) {
             $query->where('model_tipe_spesifik', 'like', '%' . $request->model_tipe_spesifik . '%');
         }
 
@@ -129,4 +132,30 @@ class BapendaController extends Controller
             'data' => $dataMapped
         ], 200);
     }
+
+    public function dropdownNjkb()
+    {
+        return response()->json([
+            'success' => true,
+            'data' => [
+                'jenis_kendaraan' => Njkb::select('jenis_kendaraan')
+                    ->distinct()
+                    ->pluck('jenis_kendaraan'),
+
+                'merk_kendaraan' => Njkb::select('merk_kendaraan')
+                    ->distinct()
+                    ->pluck('merk_kendaraan'),
+
+                'tahun_pembuatan' => Njkb::select('tahun_pembuatan')
+                    ->distinct()
+                    ->orderByDesc('tahun_pembuatan')
+                    ->pluck('tahun_pembuatan'),
+
+                'model_tipe_spesifik' => Njkb::select('model_tipe_spesifik')
+                    ->distinct()
+                    ->pluck('model_tipe_spesifik'),
+            ]
+        ]);
+    }
+
 }
