@@ -4,7 +4,7 @@ namespace Modules\Ketenagakerjaan\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Ketenagakerjaan\app\Models\JobTraining;
+use Modules\Ketenagakerjaan\Models\JobTraining;
 
 class JobTrainingController extends Controller
 {
