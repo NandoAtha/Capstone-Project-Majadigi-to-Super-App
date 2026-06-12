@@ -12,36 +12,47 @@ use App\Http\Controllers\Controller;
 class AuthController extends Controller
 {
     // REGISTER
-     function register(Request $request)
+     public function register(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'phone' => 'required|string|max:20',
-            'address' => 'required|string',
-            'nik' => 'required|string|unique:users,nik',
-            'birth_date' => 'required|date',
-            'password' => 'required|min:6|confirmed',
-        ]);
+        try {
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|unique:users,email',
+                'phone' => 'required|string|max:20',
+                'address' => 'required|string',
+                'nik' => 'required|string|unique:users,nik',
+                'birth_date' => 'required|date',
+                'password' => 'required|min:6|confirmed',
+            ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'nik' => $request->nik,
-            'birth_date' => $request->birth_date,
-            'password' => Hash::make($request->password),
-        ]);
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'address' => $request->address,
+                'nik' => $request->nik,
+                'birth_date' => $request->birth_date,
+                'password' => Hash::make($request->password),
+            ]);
 
-        $token = $user->createToken('auth_token')->plainTextToken;
+            $token = $user->createToken('auth_token')->plainTextToken;
 
-        return response()->json([
-            'status' => true,
-            'message' => 'Register berhasil',
-            'token' => $token,
-            'user' => $user,
-        ], 201);
+            return response()->json([
+                'status' => true,
+                'message' => 'Register berhasil',
+                'token' => $token,
+                'user' => $user,
+            ], 201);
+
+        } catch (\Exception $e) {
+            // INI JURUS PAMUNGKASNYA: Mengirim pesan error asli ke Chrome
+            return response()->json([
+                'message' => 'Aplikasi meledak karena:',
+                'error_asli' => $e->getMessage(),
+                'baris' => $e->getLine(),
+                'file' => $e->getFile()
+            ], 500);
+        }
     }
 
     // LOGIN
