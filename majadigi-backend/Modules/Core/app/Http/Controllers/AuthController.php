@@ -5,7 +5,7 @@ namespace Modules\Core\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-
+use Carbon\Carbon;
 // ✅ WAJIB INI
 use App\Http\Controllers\Controller;
 
@@ -25,8 +25,7 @@ class AuthController extends Controller
                 'password' => 'required|min:6|confirmed',
             ]);
 
-            $tanggal_mysql = Carbon::parse($request->birth_date)->format('Y-m-d');
-
+            $tanggal_mysql = Carbon::createFromFormat('d/m/Y', $request->birth_date)->format('Y-m-d');
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
