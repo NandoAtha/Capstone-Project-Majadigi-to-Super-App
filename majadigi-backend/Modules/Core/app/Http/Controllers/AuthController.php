@@ -25,13 +25,15 @@ class AuthController extends Controller
                 'password' => 'required|min:6|confirmed',
             ]);
 
+            $tanggal_mysql = Carbon::parse($request->birth_date)->format('Y-m-d');
+
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'address' => $request->address,
                 'nik' => $request->nik,
-                'birth_date' => $request->birth_date,
+                'birth_date' => $tanggal_mysql,
                 'password' => Hash::make($request->password),
             ]);
 
