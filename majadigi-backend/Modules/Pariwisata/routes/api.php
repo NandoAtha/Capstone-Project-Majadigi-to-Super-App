@@ -6,28 +6,36 @@ use Modules\Pariwisata\app\Http\Controllers\DestinasiWisataController;
 use Modules\Pariwisata\app\Http\Controllers\EventWisataController;
 use Modules\Pariwisata\app\Http\Controllers\AkomodasiWisataController;
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    
-    // 1. Endpoint Eksplorasi, Pencarian, & Filter (GET)
+// ✅ PUBLIC ROUTES — Tidak butuh token (untuk SIDITA mobile app)
+Route::prefix('v1')->group(function () {
+
+    // Destinasi Wisata — READ ONLY public
+    Route::get('/wisata', [DestinasiWisataController::class, 'index']);
+
+    // Akomodasi Wisata — READ ONLY public
+    Route::get('/akomodasi', [AkomodasiWisataController::class, 'index']);
+
+    // Event Wisata — READ ONLY public
+    Route::get('/event', [EventWisataController::class, 'index']);
+
+    // Naskah Kuno — READ ONLY public
     Route::get('/naskah', [NaskahController::class, 'index']);
-    
-    // 2. Endpoint Pendaftaran Naskah Baru (POST)
-    Route::post('/naskah/register', [NaskahController::class, 'store']);
-    
-    // 3. Endpoint Detail Naskah Berdasarkan ID
     Route::get('/naskah/{id}', [NaskahController::class, 'show']);
-    
-    // 4. Endpoint Kirim Komentar Naskah
+});
+
+// 🔒 PROTECTED ROUTES — Butuh token Sanctum (write operations)
+Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
+
+    // Naskah — WRITE (butuh login)
+    Route::post('/naskah/register', [NaskahController::class, 'store']);
     Route::post('/naskah/{id}/komentar', [NaskahController::class, 'storeKomentar']);
 
-    // 5. Endpoint Destinasi Wisata (GET & POST)
-    Route::get('/wisata', [DestinasiWisataController::class, 'index']);
+    // Destinasi Wisata — WRITE (butuh login, untuk admin)
     Route::post('/wisata', [DestinasiWisataController::class, 'store']);
 
-    // 6. Endpoint Event Wisata (GET & POST)
-    Route::get('/event', [EventWisataController::class, 'index']);
+    // Event Wisata — WRITE (butuh login)
     Route::post('/event', [EventWisataController::class, 'store']);
 
-    Route::get('/akomodasi', [AkomodasiWisataController::class, 'index']);
+    // Akomodasi — WRITE (butuh login)
     Route::post('/akomodasi', [AkomodasiWisataController::class, 'store']);
 });
