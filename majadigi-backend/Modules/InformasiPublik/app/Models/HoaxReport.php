@@ -4,7 +4,6 @@ namespace Modules\InformasiPublik\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Modules\InformasiPublik\Database\Factories\HoaxReportFactory;
 
 class HoaxReport extends Model
 {

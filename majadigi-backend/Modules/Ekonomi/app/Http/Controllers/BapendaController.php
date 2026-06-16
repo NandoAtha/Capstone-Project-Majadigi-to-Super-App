@@ -32,9 +32,10 @@ class BapendaController extends Controller
             ], 404);
         }
 
-        // LOGIKA KALKULATOR: Hitung total biaya tahunan secara otomatis
+        // LOGIKA KALKULATOR BAPENDA: Tambahkan variabel $kendaraan->opsen_pkb ke dalam total hitungan harian
         $total_tahunan = $kendaraan->pkb_dasar + 
                          $kendaraan->pkb_progresif + 
+                         ($kendaraan->opsen_pkb ?? 0) + // 👈 OPSEN PKB MASUK KE HITUNGAN TOTAL
                          $kendaraan->swdkllj + 
                          $kendaraan->parkir_berlangganan + 
                          $kendaraan->biaya_pengesahan_stnk + 
@@ -51,12 +52,14 @@ class BapendaController extends Controller
                     'model' => $kendaraan->model_kendaraan,
                     'tipe' => $kendaraan->tipe_kendaraan,
                     'tahun_pembuatan' => $kendaraan->tahun_pembuatan,
-                    'jatuh_tempo_pajak' => $kendaraan->tanggal_jatuh_tempo_pajak->toDateString(),
+                    // Diubah ke parsing Carbon aman jika field db berbentuk string
+                    'jatuh_tempo_pajak' => Carbon::parse($kendaraan->tanggal_jatuh_tempo_pajak)->toDateString(),
                 ],
                 'rincian_tahunan' => [
                     'opsen_pkb' => $kendaraan->opsen_pkb,
                     'pkb_dasar' => $kendaraan->pkb_dasar,
                     'pkb_progresif' => $kendaraan->pkb_progresif,
+                    'opsen_pkb' => $kendaraan->opsen_pkb ?? 0, // 👈 MENYEMBUR KE JSON DETAIL LAYAR 3 FE
                     'swdkllj' => $kendaraan->swdkllj,
                     'parkir_berlangganan' => $kendaraan->parkir_berlangganan,
                     'biaya_pengesahan_stnk' => $kendaraan->biaya_pengesahan_stnk,
@@ -67,7 +70,7 @@ class BapendaController extends Controller
                     'biaya_cetak_stnk_baru' => $kendaraan->biaya_cetak_stnk,
                     'biaya_cetak_tnkb_baru' => $kendaraan->biaya_cetak_tnkb,
                 ],
-                'keamanan_alert' => $kendaraan->status_stnk_alert // Memanggil Accessor dinamis dari Model
+                'keamanan_alert' => $kendaraan->status_stnk_alert ?? 'Aman'
             ]
         ], 200);
     }

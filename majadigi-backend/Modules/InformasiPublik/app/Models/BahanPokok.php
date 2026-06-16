@@ -12,8 +12,11 @@ class BahanPokok extends Model
     protected $fillable = [
         'nama_bahan',
         'satuan',
+        'kategori',          // ini untuk filter Layar 2 FE
         'foto',
         'harga_tertinggi',
-        'harga_terendah'
+        'daerah_tertinggi',  //  ini untuk info detail Layar 3 FE
+        'harga_terendah',
+        'daerah_terendah'    //  ini untuk info detail Layar 3 FE
     ];
 }

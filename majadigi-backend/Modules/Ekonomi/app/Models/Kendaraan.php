@@ -25,6 +25,7 @@ class Kendaraan extends Model
         'opsen_pkb',
         'pkb_dasar',
         'pkb_progresif',
+        'opsen_pkb',
         'swdkllj',
         'parkir_berlangganan',
         'biaya_pengesahan_stnk',
