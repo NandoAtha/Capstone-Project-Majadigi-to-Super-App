@@ -15,7 +15,7 @@ class FacilityRoomImage extends Model
     public function getImageUrlAttribute()
     {
         return $this->image 
-            ? env('SUPABASE_URL') . '/storage/v1/object/public/' . env('SUPABASE_BUCKET') . '/' . $this->file_name
+            ? env('SUPABASE_URL') . '/storage/v1/object/public/' . env('SUPABASE_BUCKET') . '/' . $this->image
             : null;
     }
 }
