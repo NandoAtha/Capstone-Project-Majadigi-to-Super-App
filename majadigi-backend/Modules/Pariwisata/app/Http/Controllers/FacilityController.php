@@ -31,7 +31,7 @@ class FacilityController extends Controller
     public function show($id)
     {
         $facility = Facility::with([
-            'rooms',
+            'rooms.images',
             'reviews' => function ($query) {
                 $query->where('status', 'approved')
                     ->latest();
