@@ -9,15 +9,10 @@ use Modules\Pariwisata\Models\FacilityRoom;
 
 class FacilityRoomImage extends Model
 {
-    use HasFactory;
+    protected $appends = ['image_url'];
 
-    /**
-     * The attributes that are mass assignable.
-     */
-    protected $fillable = [];
-
-    // protected static function newFactory(): FacilityRoomImageFactory
-    // {
-    //     // return FacilityRoomImageFactory::new();
-    // }
+    public function getImageUrlAttribute()
+    {
+        return asset('storage/facilities/rooms/' . $this->image);
+    }
 }
