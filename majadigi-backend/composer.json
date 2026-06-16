@@ -3,7 +3,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
@@ -29,16 +32,16 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Modules\\Core\\": "Modules/Core/app/",
-            "Modules\\Kesehatan\\": "Modules/Kesehatan/app/",
-            "Modules\\Ekonomi\\": "Modules/Ekonomi/app/",
-            "Modules\\Pendidikan\\": "Modules/Pendidikan/app/",
-            "Modules\\Pariwisata\\": "Modules/Pariwisata/app/",
-            "Modules\\Rsud\\": "Modules/Rsud/app/",
-            "Modules\\Ketenagakerjaan\\": "Modules/Ketenagakerjaan/app/",
-            "Modules\\InformasiPublik\\": "Modules/InformasiPublik/app/",
-            "Modules\\Pemerintahan\\": "Modules/Pemerintahan/app/",
-            "Modules\\Darurat\\": "Modules/Darurat/app/"
+            "Modules\\Core\\": "Modules/Core/",
+            "Modules\\Kesehatan\\": "Modules/Kesehatan/",
+            "Modules\\Ekonomi\\": "Modules/Ekonomi/",
+            "Modules\\Pendidikan\\": "Modules/Pendidikan/",
+            "Modules\\Pariwisata\\": "Modules/Pariwisata/",
+            "Modules\\Rsud\\": "Modules/Rsud/",
+            "Modules\\Ketenagakerjaan\\": "Modules/Ketenagakerjaan/",
+            "Modules\\InformasiPublik\\": "Modules/InformasiPublik/",
+            "Modules\\Pemerintahan\\": "Modules/Pemerintahan/",
+            "Modules\\Darurat\\": "Modules/Darurat/"
         }
     },
     "autoload-dev": {
@@ -87,7 +90,9 @@
             "dont-discover": []
         },
         "merge-plugin": {
-            "include": ["Modules/*/composer.json"],
+            "include": [
+                "Modules/*/composer.json"
+            ],
             "recurse": true,
             "merge-dev": true
         }

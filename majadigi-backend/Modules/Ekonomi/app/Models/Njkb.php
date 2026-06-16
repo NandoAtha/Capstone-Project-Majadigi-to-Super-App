@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Ekonomi\Models;
+namespace Modules\Ekonomi\app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

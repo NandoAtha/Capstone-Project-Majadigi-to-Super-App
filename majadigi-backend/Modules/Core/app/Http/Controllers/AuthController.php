@@ -12,8 +12,10 @@ use App\Http\Controllers\Controller;
 class AuthController extends Controller
 {
     // REGISTER
-     public function register(Request $request)
+    // Tambahkan ini di atas fungsi register
+    public function register(Request $request)
     {
+        return response()->json(['message' => 'Versi kode terbaru!']);
         try {
             $request->validate([
                 'name' => 'required|string|max:255',
@@ -25,7 +27,8 @@ class AuthController extends Controller
                 'password' => 'required|min:6|confirmed',
             ]);
 
-            $tanggal_mysql = Carbon::createFromFormat('d/m/Y', $request->birth_date)->format('Y-m-d');
+            $tanggal_mysql = new \Carbon\Carbon($request->birth_date);
+
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -46,7 +49,6 @@ class AuthController extends Controller
             ], 201);
 
         } catch (\Exception $e) {
-            // INI JURUS PAMUNGKASNYA: Mengirim pesan error asli ke Chrome
             return response()->json([
                 'message' => 'Akun Sudah Terdaftar atau Data Tidak Valid',
                 'error_asli' => $e->getMessage(),
