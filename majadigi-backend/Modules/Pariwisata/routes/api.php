@@ -6,7 +6,6 @@ use Modules\Pariwisata\app\Http\Controllers\DestinasiWisataController;
 use Modules\Pariwisata\app\Http\Controllers\EventWisataController;
 use Modules\Pariwisata\app\Http\Controllers\AkomodasiWisataController;
 
-// ✅ PUBLIC ROUTES — Tidak butuh token (untuk SIDITA mobile app)
 Route::prefix('v1')->group(function () {
 
     // Destinasi Wisata — READ ONLY public
@@ -21,13 +20,12 @@ Route::prefix('v1')->group(function () {
     // Naskah Kuno — READ ONLY public
     Route::get('/naskah', [NaskahController::class, 'index']);
     Route::get('/naskah/{id}', [NaskahController::class, 'show']);
+    Route::post('/naskah/register', [NaskahController::class, 'store']);
 });
 
-// 🔒 PROTECTED ROUTES — Butuh token Sanctum (write operations)
 Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
 
     // Naskah — WRITE (butuh login)
-    Route::post('/naskah/register', [NaskahController::class, 'store']);
     Route::post('/naskah/{id}/komentar', [NaskahController::class, 'storeKomentar']);
 
     // Destinasi Wisata — WRITE (butuh login, untuk admin)

@@ -76,19 +76,81 @@ class InformasiPublikDatabaseSeeder extends Seeder
                 'nama_pelapor' => 'Muhammad Farid',
                 'deskripsi_laporan' => 'Beredar pesan berantai di WhatsApp bahwa Alun-Alun Malang ditutup total selama sebulan penuh mulai besok pagi karena ada kunjungan kenegaraan.',
                 'url_bukti' => 'https://jabar.id/bukti/hoax1.jpg',
-                'status' => 'hoax', // proses, valid, hoax
-                'created_at' => now(), 
-                'updated_at' => now()
+                'status' => 'hoax',
+                'created_at' => now(), 'updated_at' => now()
             ],
             [
                 'nomor_tiket' => 'TKT-20260602-002',
                 'nama_pelapor' => 'Anonim',
                 'deskripsi_laporan' => 'Ada link pendaftaran bansos kuota internet gratis 100GB mengatasnamakan Diskominfo Jatim dengan mengisi data KTP dan KK.',
                 'url_bukti' => 'https://jabar.id/bukti/hoax2.jpg',
-                'status' => 'valid', // di-set valid artinya ini laporan yang terbukti bermuatan hoax
-                'created_at' => now(), 
-                'updated_at' => now()
-            ]
+                'status' => 'valid',
+                'created_at' => now(), 'updated_at' => now()
+            ],
+            [
+                'nomor_tiket' => 'TKT-20260603-003',
+                'nama_pelapor' => 'Siti Rahma',
+                'deskripsi_laporan' => 'Viral video yang mengklaim Gubernur Jawa Timur mengumumkan lockdown total wilayah Surabaya mulai pekan depan.',
+                'url_bukti' => 'https://jabar.id/bukti/hoax3.jpg',
+                'status' => 'hoax',
+                'created_at' => now(), 'updated_at' => now()
+            ],
+            [
+                'nomor_tiket' => 'TKT-20260603-004',
+                'nama_pelapor' => 'Budi Santoso',
+                'deskripsi_laporan' => 'Beredar screenshot palsu yang mengatasnamakan BPJS Kesehatan menyatakan layanan rawat inap dihapus mulai Juli 2026.',
+                'url_bukti' => 'https://jabar.id/bukti/hoax4.jpg',
+                'status' => 'hoax',
+                'created_at' => now(), 'updated_at' => now()
+            ],
+            [
+                'nomor_tiket' => 'TKT-20260604-005',
+                'nama_pelapor' => 'Dewi Lestari',
+                'deskripsi_laporan' => 'Informasi di media sosial menyebutkan vaksin COVID booster ke-4 menyebabkan kemandulan permanen, tersebar luas di grup ibu-ibu.',
+                'url_bukti' => 'https://jabar.id/bukti/hoax5.jpg',
+                'status' => 'disinformasi',
+                'created_at' => now(), 'updated_at' => now()
+            ],
+            [
+                'nomor_tiket' => 'TKT-20260604-006',
+                'nama_pelapor' => 'Ahmad Rizki',
+                'deskripsi_laporan' => 'Postingan yang menyerang kelompok tertentu dengan tuduhan palsu terkait penjarahan toko di kawasan Malang Kota.',
+                'url_bukti' => null,
+                'status' => 'hate_speech',
+                'created_at' => now(), 'updated_at' => now()
+            ],
+            [
+                'nomor_tiket' => 'TKT-20260605-007',
+                'nama_pelapor' => 'Nurul Hidayah',
+                'deskripsi_laporan' => 'Klaim bahwa jembatan Suramadu akan ditutup permanen karena kerusakan struktural berat.',
+                'url_bukti' => 'https://jabar.id/bukti/hoax7.jpg',
+                'status' => 'hoax',
+                'created_at' => now(), 'updated_at' => now()
+            ],
+            [
+                'nomor_tiket' => 'TKT-20260605-008',
+                'nama_pelapor' => 'Anonim',
+                'deskripsi_laporan' => 'Informasi menyesatkan tentang obat herbal yang diklaim bisa menyembuhkan diabetes dalam 3 hari tanpa efek samping.',
+                'url_bukti' => 'https://jabar.id/bukti/hoax8.jpg',
+                'status' => 'disinformasi',
+                'created_at' => now(), 'updated_at' => now()
+            ],
+            [
+                'nomor_tiket' => 'TKT-20260606-009',
+                'nama_pelapor' => 'Rizal Firmansyah',
+                'deskripsi_laporan' => 'Ujaran kebencian menyasar komunitas tertentu di Jawa Timur yang dikaitkan dengan kejadian kriminal tanpa bukti.',
+                'url_bukti' => null,
+                'status' => 'hate_speech',
+                'created_at' => now(), 'updated_at' => now()
+            ],
+            [
+                'nomor_tiket' => 'TKT-20260606-010',
+                'nama_pelapor' => 'Linda Wahyuni',
+                'deskripsi_laporan' => 'Pesan viral yang menyatakan air PDAM Surabaya mengandung zat berbahaya dan tidak layak konsumsi.',
+                'url_bukti' => 'https://jabar.id/bukti/hoax10.jpg',
+                'status' => 'valid',
+                'created_at' => now(), 'updated_at' => now()
+            ],
         ]);
         // 5. DATA NOMOR DARURAT (Tambahkan ini, sesuaikan nama kolomnya jika ada yang beda)
         DB::table('nomor_darurat')->insertOrIgnore([

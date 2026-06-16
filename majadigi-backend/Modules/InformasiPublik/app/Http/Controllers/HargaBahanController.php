@@ -1,13 +1,11 @@
 <?php
 
-namespace Modules\InformasiPublik\app\Http\Controllers;
+namespace Modules\InformasiPublik\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; // Tetap diimport untuk hitungan AVG/Rata-rata grafik dan database
 use Modules\InformasiPublik\app\Models\HargaHarian as ModelsHargaHarian;
-// Import juga model BahanPokok agar bisa dicari detailnya langsung via Model
-use Modules\InformasiPublik\app\Models\BahanPokok; 
 
 class HargaBahanController extends Controller
 {
