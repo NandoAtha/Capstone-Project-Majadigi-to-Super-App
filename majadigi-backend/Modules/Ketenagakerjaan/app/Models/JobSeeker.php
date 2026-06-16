@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Ketenagakerjaan\App\Models;
+namespace Modules\Ketenagakerjaan\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,12 +25,6 @@ class JobSeeker extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    // Relasi ke lamaran kerja
-    public function applications()
-    {
-        return $this->hasMany(JobApplication::class);
     }
 
     // Relasi ke pelatihan (many-to-many lewat participants)

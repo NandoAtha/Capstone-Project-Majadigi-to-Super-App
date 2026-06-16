@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Pariwisata\app\Http\Controllers;
+namespace Modules\Pariwisata\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Modules\Pariwisata\app\Models\DestinasiWisata;
+use Modules\Pariwisata\Models\DestinasiWisata;
 
 class DestinasiWisataController extends Controller
 {

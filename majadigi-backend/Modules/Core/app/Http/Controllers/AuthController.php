@@ -5,32 +5,55 @@ namespace Modules\Core\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-
+use Carbon\Carbon;
 // ✅ WAJIB INI
 use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
     // REGISTER
-    public function register(Request $request)
+     public function register(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6'
-        ]);
+        try {
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|unique:users,email',
+                'phone' => 'required|string|max:20',
+                'address' => 'required|string',
+                'nik' => 'required|string|unique:users,nik',
+                'birth_date' => 'required|date',
+                'password' => 'required|min:6|confirmed',
+            ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password
-        ]);
+            $tanggal_mysql = Carbon::createFromFormat('d/m/Y', $request->birth_date)->format('Y-m-d');
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'address' => $request->address,
+                'nik' => $request->nik,
+                'birth_date' => $tanggal_mysql,
+                'password' => Hash::make($request->password),
+            ]);
 
-        return response()->json([
-            'status' => true,
-            'message' => 'Register berhasil',
-            'data' => $user
-        ]);
+            $token = $user->createToken('auth_token')->plainTextToken;
+
+            return response()->json([
+                'status' => true,
+                'message' => 'Register berhasil',
+                'token' => $token,
+                'user' => $user,
+            ], 201);
+
+        } catch (\Exception $e) {
+            // INI JURUS PAMUNGKASNYA: Mengirim pesan error asli ke Chrome
+            return response()->json([
+                'message' => 'Aplikasi meledak karena:',
+                'error_asli' => $e->getMessage(),
+                'baris' => $e->getLine(),
+                'file' => $e->getFile()
+            ], 500);
+        }
     }
 
     // LOGIN

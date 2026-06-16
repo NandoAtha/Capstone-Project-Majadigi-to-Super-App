@@ -1,0 +1,11 @@
+{
+    "name": "Rsud",
+    "alias": "rsud",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Rsud\\Providers\\RsudServiceProvider"
+    ],
+    "files": []
+}

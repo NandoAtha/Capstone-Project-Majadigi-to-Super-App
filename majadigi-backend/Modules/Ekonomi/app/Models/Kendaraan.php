@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Ekonomi\app\Models;
+namespace Modules\Ekonomi\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -22,6 +22,7 @@ class Kendaraan extends Model
         'tahun_pembuatan',
         'tanggal_jatuh_tempo_pajak',
         'tanggal_jatuh_tempo_stnk',
+        'opsen_pkb',
         'pkb_dasar',
         'pkb_progresif',
         'opsen_pkb',

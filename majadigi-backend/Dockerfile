@@ -1,0 +1,49 @@
+FROM dunglas/frankenphp:1.4-php8.4
+
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    zip \
+    curl \
+    libzip-dev \
+    libicu-dev \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    && docker-php-ext-install \
+        pdo \
+        pdo_mysql \
+        intl \
+        zip \
+        exif \
+        pcntl \
+    && apt-get clean
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+WORKDIR /app
+
+COPY . .
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+# ✅ Beritahu Octane untuk menggunakan FrankenPHP bawaan Docker
+ENV OCTANE_FRANKENPHP_BINARY=frankenphp
+
+RUN composer install \
+    --no-dev \
+    --optimize-autoloader \
+    --no-interaction
+
+RUN chmod -R 775 storage bootstrap/cache
+
+EXPOSE 8080
+
+RUN echo "memory_limit=512M" > /usr/local/etc/php/conf.d/memory.ini
+RUN echo "max_execution_time=60" >> /usr/local/etc/php/conf.d/memory.ini
+
+# Tambahkan script entrypoint terpisah
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+CMD ["/usr/local/bin/docker-entrypoint.sh"]

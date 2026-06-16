@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Darurat\App\Models;
+namespace Modules\Darurat\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

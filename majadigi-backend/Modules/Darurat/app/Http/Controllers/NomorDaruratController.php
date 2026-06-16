@@ -4,7 +4,7 @@ namespace Modules\Darurat\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Darurat\app\Models\NomorDarurat;
+use Modules\Darurat\Models\NomorDarurat;
 
 class NomorDaruratController extends Controller
 {

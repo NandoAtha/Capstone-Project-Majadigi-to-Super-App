@@ -47,6 +47,14 @@ return [
             'report' => false,
         ],
 
+        'supabase' => [
+            'driver'   => 'supabase',
+            'key'      => env('SUPABASE_SERVICE_KEY'), 
+            'bucket'   => env('SUPABASE_BUCKET'),
+            'endpoint' => env('SUPABASE_URL'),
+            'public'   => true,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

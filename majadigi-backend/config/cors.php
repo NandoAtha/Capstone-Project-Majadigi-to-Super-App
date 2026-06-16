@@ -31,8 +31,4 @@ return [
 
     'supports_credentials' => false,
 
-    'paths' => ['api/*'],
-    
-    'allowed_origins' => ['*'],
-
 ];
