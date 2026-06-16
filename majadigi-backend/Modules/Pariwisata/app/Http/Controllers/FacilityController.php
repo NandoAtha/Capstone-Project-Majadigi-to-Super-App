@@ -16,8 +16,8 @@ class FacilityController extends Controller
             ->map(function ($facility) {
 
                 $facility->thumbnail_url = $facility->thumbnail
-                    ? asset('storage/facilities/' . $facility->thumbnail)
-                    : null;
+                ? env('SUPABASE_URL') . '/storage/v1/object/public/' . env('SUPABASE_BUCKET') . '/' . $facility->thumbnail
+                : null;
 
                 return $facility;
             });
@@ -39,7 +39,7 @@ class FacilityController extends Controller
         ])->findOrFail($id);
 
         $facility->thumbnail_url = $facility->thumbnail
-            ? asset('storage/facilities/' . $facility->thumbnail)
+            ? env('SUPABASE_URL') . '/storage/v1/object/public/' . env('SUPABASE_BUCKET') . '/' . $facility->thumbnail
             : null;
 
         return response()->json([
