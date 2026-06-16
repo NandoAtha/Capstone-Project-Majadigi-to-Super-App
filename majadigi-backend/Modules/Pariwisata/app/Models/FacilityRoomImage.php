@@ -11,8 +11,11 @@ class FacilityRoomImage extends Model
 {
     protected $appends = ['image_url'];
 
+    
     public function getImageUrlAttribute()
     {
-        return asset('storage/facilities/rooms/' . $this->image);
+        return $this->image 
+            ? env('SUPABASE_URL') . '/storage/v1/object/public/' . env('SUPABASE_BUCKET') . '/' . $this->file_name
+            : null;
     }
 }
