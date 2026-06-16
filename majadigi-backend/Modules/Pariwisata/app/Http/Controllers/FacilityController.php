@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Pariwisata\Http\Controllers\Api;
+namespace Modules\Pariwisata\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,25 +10,22 @@ class FacilityController extends Controller
 {
     public function index()
     {
-        try {
+        $facilities = Facility::where('status', 'active')
+            ->latest()
+            ->get()
+            ->map(function ($facility) {
 
-            $facilities = Facility::where('status', 'active')
-                ->latest()
-                ->get();
+                $facility->thumbnail_url = $facility->thumbnail
+                    ? asset('storage/facilities/' . $facility->thumbnail)
+                    : null;
 
-            return response()->json([
-                'success' => true,
-                'data' => $facilities,
-            ]);
+                return $facility;
+            });
 
-        } catch (\Throwable $e) {
-
-            return response()->json([
-                'error' => $e->getMessage(),
-                'file' => $e->getFile(),
-                'line' => $e->getLine(),
-            ], 500);
-        }
+        return response()->json([
+            'success' => true,
+            'data' => $facilities,
+        ]);
     }
 
     public function show($id)
