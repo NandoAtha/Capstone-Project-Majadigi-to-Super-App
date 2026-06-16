@@ -10,22 +10,25 @@ class FacilityController extends Controller
 {
     public function index()
     {
-        $facilities = Facility::where('status', 'active')
-            ->latest()
-            ->get()
-            ->map(function ($facility) {
+        try {
 
-                $facility->thumbnail_url = $facility->thumbnail
-                    ? asset('storage/facilities/' . $facility->thumbnail)
-                    : null;
+            $facilities = Facility::where('status', 'active')
+                ->latest()
+                ->get();
 
-                return $facility;
-            });
+            return response()->json([
+                'success' => true,
+                'data' => $facilities,
+            ]);
 
-        return response()->json([
-            'success' => true,
-            'data' => $facilities,
-        ]);
+        } catch (\Throwable $e) {
+
+            return response()->json([
+                'error' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+            ], 500);
+        }
     }
 
     public function show($id)
