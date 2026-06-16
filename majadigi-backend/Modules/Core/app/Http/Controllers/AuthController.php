@@ -87,12 +87,12 @@ class AuthController extends Controller
             $token = $user->createToken('auth_token')->plainTextToken;
 
             return response()->json([
-                'status' => true,
-                'message' => 'Register berhasil',
-                'token' => $token,
-                'user' => $user,
-            ], 201);
-
+                'debug_mode' => 'ON',
+                'all_input' => $request->all(),
+                'birth_date_raw' => $request->input('birth_date'),
+                'birth_date_length' => strlen($request->input('birth_date')),
+                'birth_date_bytes' => bin2hex($request->input('birth_date')), // Melihat karakter tersembunyi
+            ], 200);
         } catch (\Illuminate\Validation\ValidationException $e) {
             // Menampilkan error validasi agar kamu tahu field mana yang salah
             return response()->json([
