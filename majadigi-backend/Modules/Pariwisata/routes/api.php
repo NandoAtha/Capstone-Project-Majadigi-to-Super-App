@@ -7,7 +7,7 @@ use Modules\Pariwisata\Http\Controllers\RoomController;
 use Modules\Pariwisata\Http\Controllers\BookingController;
 use Modules\Pariwisata\Http\Controllers\FacilityReviewController;
 
-//Route::middleware(['auth:sanctum'])->group(function () {
+
     Route::apiResource('pariwisatas', PariwisataController::class)->names('pariwisata');
 
     Route::prefix('facilities')->group(function () {
@@ -45,7 +45,7 @@ Route::post('/bookings', [
     BookingController::class,
     'store'
 ]);
-//});
+
 
 use Modules\Pariwisata\Http\Controllers\NaskahController;
 use Modules\Pariwisata\Http\Controllers\DestinasiWisataController;
