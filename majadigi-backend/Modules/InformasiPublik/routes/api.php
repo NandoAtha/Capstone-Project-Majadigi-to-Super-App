@@ -5,7 +5,7 @@ use Modules\InformasiPublik\Http\Controllers\InformasiPublikController;
 use Modules\InformasiPublik\Http\Controllers\HoaxController;
 use Modules\InformasiPublik\Http\Controllers\HargaBahanController;
 
-Roiute::prefix('v1')->group(function () {
+Route::prefix('v1')->group(function () {
     Route::get('/hoax', [HoaxController::class, 'index']);
     Route::get('/hoax/{id}', [HoaxController::class, 'show']);
     Route::post('/hoax/lapor', [HoaxController::class, 'store']);
