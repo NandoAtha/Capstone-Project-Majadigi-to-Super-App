@@ -46,7 +46,6 @@ class AuthController extends Controller
             ], 201);
 
         } catch (\Exception $e) {
-            // INI JURUS PAMUNGKASNYA: Mengirim pesan error asli ke Chrome
             return response()->json([
                 'message' => 'Akun Sudah Terdaftar atau Data Tidak Valid',
                 'error_asli' => $e->getMessage(),
